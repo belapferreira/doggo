@@ -1,14 +1,14 @@
-import { Header } from './components/Header';
+import { QueryClientProvider } from '@tanstack/react-query';
+
+import { queryClient } from './services/query-client';
+
+import { Home } from './pages/Home';
 
 function App() {
   return (
-    <div className="flex min-h-screen w-full flex-col bg-neutral-200">
-      <Header />
-
-      <main className="mx-auto flex max-w-[1352px] flex-col gap-10 p-6 pb-10">
-        <h1 className="text-center text-3xl font-bold">Doggo</h1>
-      </main>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Home />
+    </QueryClientProvider>
   );
 }
 

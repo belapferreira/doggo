@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  ::-webkit-scrollbar {
+    @apply w-2;
+    @apply h-1;
+    @apply mr-2;
+  }
+
+  ::-webkit-scrollbar-corner {
+    @apply border-none;
+    @apply bg-none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-400;
+    @apply rounded-md;
+    @apply cursor-move;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+    @apply border-none;
+  }
+}
