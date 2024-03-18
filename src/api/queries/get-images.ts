@@ -18,7 +18,7 @@ export const getImages = async (
 ): Promise<GetImagesQueryResponse> => {
   const defaultParams = {
     page: 0,
-    limit: 12,
+    limit: 8,
     size: 'med',
     mimeType: 'jpg',
   };
