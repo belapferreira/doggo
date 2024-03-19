@@ -3,19 +3,27 @@ import { DogCard } from '@/components/DogCard';
 
 import { useGetImagesQuery } from '@/api/queries';
 import { generateArrayItems } from '@/utils/generateArrayItems';
+import { Pagination } from '@/components/Pagination';
+import { useCallback, useState } from 'react';
 
 export const Home = () => {
-  const { data: dogImages, isLoading } = useGetImagesQuery(undefined, {
-    staleTime: 240000 /* 4 minutes */,
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const { data: dogImages, isLoading } = useGetImagesQuery({
+    page: currentPage,
   });
 
   const items = generateArrayItems(8);
+
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page);
+  }, []);
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-neutral-200">
       <Header />
 
-      <main className="mx-auto flex max-w-[1352px] flex-col gap-12 p-6 pb-10">
+      <main className="mx-auto flex max-w-[1352px] flex-col gap-8 p-6 pb-10">
         <h1 className="text-2xl font-bold text-neutral-700">
           Have fun appreciating beautyful doggos
         </h1>
@@ -38,6 +46,12 @@ export const Home = () => {
             </>
           )}
         </div>
+
+        <Pagination
+          currentPage={currentPage}
+          totalPages={9}
+          handlePageChange={handlePageChange}
+        />
       </main>
     </div>
   );

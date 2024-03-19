@@ -5,7 +5,7 @@ interface DogCard {
 
 export const DogCard = ({ url, breedName }: DogCard) => {
   return (
-    <button className="flex w-full flex-col overflow-hidden rounded border-2 border-neutral-300 bg-neutral-300 transition-colors ease-in-out duration-300 hover:border-amber-600">
+    <button className="flex w-full flex-col overflow-hidden rounded border-2 border-neutral-300 bg-neutral-300 transition-colors duration-300 ease-in-out hover:border-amber-600">
       <div className="h-full max-h-48 min-w-[19.4375rem] overflow-hidden">
         <img
           src={url}
@@ -15,13 +15,13 @@ export const DogCard = ({ url, breedName }: DogCard) => {
       </div>
 
       <div className="flex w-full flex-col gap-4 p-5">
-        <p className="flex items-center gap-1">
-          <strong className="text-neutral-700">Breed:</strong>
+        <p className="flex items-center gap-1 text-neutral-700">
+          <strong>Breed:</strong>
 
           <span>{breedName || 'Beautiful Doggo'}</span>
         </p>
 
-        <button className="mx-auto rounded-full bg-amber-600/70 px-8 py-1 font-semibold text-neutral-100 transition-colors ease-in-out duration-300 hover:bg-amber-600/80">
+        <button className="mx-auto rounded-full bg-amber-600/70 px-8 py-1 font-semibold text-neutral-100 transition-colors duration-300 ease-in-out hover:bg-amber-600/80">
           More info
         </button>
       </div>
