@@ -5,7 +5,7 @@ import {
   CaretRight,
 } from '@phosphor-icons/react';
 
-interface Pagination {
+interface PaginationProps {
   currentPage: number;
   totalPages: number;
   handlePageChange: (page: number) => void;
@@ -15,7 +15,7 @@ export const Pagination = ({
   currentPage,
   totalPages,
   handlePageChange,
-}: Pagination) => {
+}: PaginationProps) => {
   return (
     <div className="ml-auto flex items-center gap-6">
       <span className="text-sm font-semibold text-neutral-700">

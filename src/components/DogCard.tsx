@@ -1,16 +1,17 @@
-interface DogCard {
+
+interface DogCardProps {
   url: string;
   breedName: string;
 }
 
-export const DogCard = ({ url, breedName }: DogCard) => {
+export const DogCard = ({ url, breedName }: DogCardProps) => {
   return (
     <button className="flex w-full flex-col overflow-hidden rounded border-2 border-neutral-300 bg-neutral-300 transition-colors duration-300 ease-in-out hover:border-amber-600">
       <div className="h-full max-h-48 min-w-[19.4375rem] overflow-hidden">
         <img
           src={url}
           alt="Image of a dog"
-          className="aspect-[10/8.5] w-full object-cover object-center"
+          className="aspect-[10/8.5] w-full object-cover object-center bg-neutral-400/80"
         />
       </div>
 
