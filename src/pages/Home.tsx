@@ -11,6 +11,8 @@ export const Home = () => {
 
   const { data: dogImages, isLoading } = useGetImagesQuery({
     page: currentPage,
+  }, {
+    staleTime: 1000 * 60 * 60, // 1 hour
   });
 
   const items = generateArrayItems(8);
