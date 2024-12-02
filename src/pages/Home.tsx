@@ -9,11 +9,14 @@ import { useCallback, useState } from 'react';
 export const Home = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
-  const { data: dogImages, isLoading } = useGetImagesQuery({
-    page: currentPage,
-  }, {
-    staleTime: 1000 * 60 * 60, // 1 hour
-  });
+  const { data: dogImages, isLoading } = useGetImagesQuery(
+    {
+      page: currentPage,
+    },
+    {
+      staleTime: 1000 * 60 * 60, // 1 hour
+    },
+  );
 
   const items = generateArrayItems(8);
 
@@ -27,7 +30,7 @@ export const Home = () => {
 
       <main className="mx-auto flex max-w-[1352px] flex-col gap-8 p-6 pb-10">
         <h1 className="text-2xl font-bold text-neutral-700">
-          Have fun appreciating beautyful doggos
+          Have fun appreciating beautiful doggos
         </h1>
 
         <div className="grid w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-4">
@@ -42,8 +45,8 @@ export const Home = () => {
             </>
           ) : (
             <>
-              {dogImages?.map(({ id, url, breeds }) => (
-                <DogCard key={id} url={url} breedName={breeds[0]?.name} />
+              {dogImages?.map((dogImage) => (
+                <DogCard key={dogImage.id} data={dogImage} />
               ))}
             </>
           )}

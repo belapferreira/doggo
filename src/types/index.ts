@@ -9,7 +9,8 @@ type Breed = {
   };
   id: number;
   name: string;
-  bredFor: string;
+  bredFor?: string;
+  breedGroup?: string;
   lifeSpan: string;
   temperament: string;
   origin: string;
