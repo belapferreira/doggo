@@ -18,8 +18,6 @@ export const DogModal = ({ open, onOpenChange, data }: DogModalProps) => {
 
   const isVertical = data?.height > data?.width;
 
-  console.log(`isVertical ${breed?.name}`, isVertical);
-
   const name = breed?.name || 'Beautiful Doggo';
 
   const heightSplitted = breed?.height?.metric.split(' - ');

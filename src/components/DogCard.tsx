@@ -24,7 +24,7 @@ export const DogCard = ({ data }: DogCardProps) => {
         disabled={!data.breeds.length}
         className="flex w-full flex-col overflow-hidden rounded border-2 border-neutral-300 bg-neutral-300 transition-colors duration-300 ease-in-out enabled:hover:border-amber-600 disabled:cursor-not-allowed"
       >
-        <div className="h-full max-h-48 min-w-[19.4375rem] overflow-hidden">
+        <div className="h-full max-h-48 w-full overflow-hidden">
           <img
             src={data.url}
             alt="Image of a dog"

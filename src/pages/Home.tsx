@@ -28,7 +28,7 @@ export const Home = () => {
     <div className="flex min-h-screen w-full flex-col bg-neutral-200">
       <Header />
 
-      <main className="mx-auto flex max-w-[1352px] flex-col gap-8 p-6 pb-10">
+      <main className="mx-auto flex w-full max-w-[1352px] flex-col gap-8 p-6 pb-10">
         <h1 className="text-2xl font-bold text-neutral-700">
           Have fun appreciating beautiful doggos
         </h1>
@@ -39,7 +39,7 @@ export const Home = () => {
               {items.map((item) => (
                 <div
                   key={`doggo-image-${item}`}
-                  className="h-[19.25rem] w-full min-w-[19.4375rem] animate-pulse rounded bg-neutral-300"
+                  className="h-[19.25rem] w-full animate-pulse rounded bg-neutral-300"
                 />
               ))}
             </>
