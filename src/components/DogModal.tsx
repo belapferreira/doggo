@@ -64,12 +64,12 @@ export const DogModal = ({ open, onOpenChange, data }: DogModalProps) => {
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0 bg-neutral-900/90" />
+        <Dialog.Overlay className="fixed inset-0 bg-neutral-900/90 data-[state=open]:animate-overlayShow" />
         <Dialog.Content
           className={cn(
             'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md bg-neutral-300',
             'flex h-fit max-h-[95vh] min-h-0 w-[700px] max-w-[90vw] flex-col overflow-hidden',
-            'data-[state=open]:animate-contentShow focus:outline-none',
+            'focus:outline-none data-[state=open]:animate-contentShow',
             isVertical && 'md:flex-row',
           )}
         >
@@ -80,6 +80,7 @@ export const DogModal = ({ open, onOpenChange, data }: DogModalProps) => {
               'aspect-[19/20] w-full rounded-t-md bg-neutral-400/80 object-cover object-center md:aspect-[10/8]',
               isVertical &&
                 'md:aspect-auto md:w-[55%] md:rounded-l-md md:rounded-t-none',
+              !isVertical && 'max-h-[50vh]',
             )}
           />
 
