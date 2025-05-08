@@ -39,6 +39,7 @@ export const Home = () => {
               {items.map((item) => (
                 <div
                   key={`doggo-image-${item}`}
+                  data-testid={`doggo-loading-${item}`}
                   className="h-[19.25rem] w-full animate-pulse rounded bg-neutral-300"
                 />
               ))}
