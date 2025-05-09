@@ -19,10 +19,12 @@ export const DogCard = ({ data }: DogCardProps) => {
 
   return (
     <>
-      <button
+      <div
+        role="button"
+        data-testid={`doggo-card-${data.id}`}
         onClick={handleOpenDetail}
-        disabled={!data.breeds.length}
-        className="flex w-full flex-col overflow-hidden rounded border-2 border-neutral-300 bg-neutral-300 transition-colors duration-300 ease-in-out enabled:hover:border-amber-600 disabled:cursor-not-allowed"
+        data-disabled={!data.breeds.length}
+        className="flex w-full flex-col overflow-hidden rounded border-2 border-neutral-300 bg-neutral-300 transition-colors duration-300 ease-in-out data-[disabled=true]:cursor-not-allowed data-[disabled=false]:hover:border-amber-600"
       >
         <div className="h-full max-h-48 w-full overflow-hidden">
           <img
@@ -46,7 +48,7 @@ export const DogCard = ({ data }: DogCardProps) => {
             More info
           </button>
         </div>
-      </button>
+      </div>
 
       <DogModal open={openDetail} onOpenChange={handleOpenDetail} data={data} />
     </>
