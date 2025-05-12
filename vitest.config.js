@@ -12,6 +12,7 @@ export default defineConfig({
     coverage: {
       reporter: ['html'],
       reportsDirectory: './src/tests/coverage',
+      include: ['src/**/*.{js,ts}'],
     },
   },
   resolve: {

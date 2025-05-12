@@ -38,7 +38,9 @@ export const DogCard = ({ data }: DogCardProps) => {
           <p className="flex items-center gap-1 text-neutral-700">
             <strong>Breed:</strong>
 
-            <span>{data?.breeds[0]?.name || 'Beautiful Doggo'}</span>
+            <span data-testid={`doggo-breed-name-${data.id}`}>
+              {data?.breeds[0]?.name || 'Beautiful Doggo'}
+            </span>
           </p>
 
           <button
