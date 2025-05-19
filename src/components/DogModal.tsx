@@ -49,13 +49,13 @@ export const DogModal = ({ open, onOpenChange, data }: DogModalProps) => {
 
   const Tag = ({ title, description }: BreedTagProps) => {
     return (
-      <p
+      <span
         title={description}
         className="text-xs font-medium text-neutral-700 md:text-sm"
       >
         {title}:{' '}
         <span className="font-normal">{description || 'unavailable'}</span>
-      </p>
+      </span>
     );
   };
 
@@ -64,6 +64,7 @@ export const DogModal = ({ open, onOpenChange, data }: DogModalProps) => {
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-neutral-900/90 data-[state=open]:animate-overlayShow" />
         <Dialog.Content
+          data-testid={`doggo-details-${data.id}`}
           className={cn(
             'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md bg-neutral-300',
             'flex h-fit max-h-[95vh] min-h-0 w-[700px] max-w-[90vw] flex-col overflow-hidden',
@@ -88,13 +89,13 @@ export const DogModal = ({ open, onOpenChange, data }: DogModalProps) => {
             </Dialog.Title>
 
             <Dialog.Description className="flex flex-col gap-5">
-              <div className="space-y-1">
+              <span className="space-y-1">
                 <strong className="font-semibold text-neutral-700 md:text-lg">
                   Breed
                 </strong>
 
-                <div className="flex flex-col gap-2">
-                  <div
+                <span className="flex flex-col gap-2">
+                  <span
                     className={cn(
                       'flex flex-wrap items-center gap-2',
                       isVertical && 'flex-col items-start',
@@ -115,20 +116,20 @@ export const DogModal = ({ open, onOpenChange, data }: DogModalProps) => {
                     {!!breed?.lifeSpan && (
                       <Tag title="Life span" description={breed?.lifeSpan} />
                     )}
-                  </div>
+                  </span>
 
                   {!!breed?.temperament && (
                     <Tag title="Temperament" description={breed?.temperament} />
                   )}
-                </div>
-              </div>
+                </span>
+              </span>
 
-              <div className="space-y-1">
+              <span className="space-y-1">
                 <strong className="font-semibold text-neutral-700 md:text-lg">
                   Metrics
                 </strong>
 
-                <div className="flex flex-wrap items-center gap-2">
+                <span className="flex flex-wrap items-center gap-2">
                   {!!breed?.height?.metric && (
                     <Tag title="Height" description={heightFormatted()} />
                   )}
@@ -138,8 +139,8 @@ export const DogModal = ({ open, onOpenChange, data }: DogModalProps) => {
                   {!!breed?.weight?.metric && (
                     <Tag title="Height" description={weightFormatted()} />
                   )}
-                </div>
-              </div>
+                </span>
+              </span>
             </Dialog.Description>
           </div>
           {/* <Dialog.Close /> */}

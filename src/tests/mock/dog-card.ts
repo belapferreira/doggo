@@ -9,7 +9,7 @@ export const mockDataWithBreeds: Image = {
       name: 'Caramel',
       temperament: 'Gentle, Intelligent',
       origin: 'Brazil',
-      lifeSpan: '10-12 years',
+      lifeSpan: '10 - 12 years',
       referenceImageId: 'abc123',
       weight: { imperial: '55 - 80', metric: '25 - 36' },
       height: { imperial: '21.5 - 24.5', metric: '55 - 62' },
