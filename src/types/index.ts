@@ -1,4 +1,4 @@
-type Breed = {
+export type Breed = {
   weight: {
     imperial: string;
     metric: string;
@@ -23,4 +23,14 @@ export type Image = {
   url: string;
   width: number;
   height: number;
+};
+
+export type Category = {
+  id: number;
+  name: string;
+};
+
+export type SelectOption = {
+  value: string;
+  label: string;
 };

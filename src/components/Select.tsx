@@ -13,15 +13,15 @@ import { tv, VariantProps } from 'tailwind-variants';
 
 const controlComponent = tv({
   slots: {
-    base: '!min-h-[48px] border border-neutral-300 rounded transition',
+    base: '!min-h-[40px] border border-neutral-300 rounded transition',
     icon: 'flex items-center justify-center text-neutral-500 size-6',
   },
 
   variants: {
     focused: {
       true: {
-        base: 'border-amber-600',
-        icon: 'text-amber-600',
+        base: 'focus:border-amber-600 focus-within:border-amber-600',
+        icon: 'focus:text-amber-600 focus-within:text-amber-600',
       },
     },
 
@@ -123,6 +123,7 @@ export const Select = forwardRef<SelectElement<boolean>, SelectProps>(
         className="border-transparent"
         unstyled
         isMulti={multiple}
+        isDisabled={disabled}
         loadingMessage={() => 'Loading...'}
         noOptionsMessage={({ inputValue }) =>
           inputValue?.length ? `No results for "${inputValue}"` : 'No results'

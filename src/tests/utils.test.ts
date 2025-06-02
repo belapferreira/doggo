@@ -1,6 +1,6 @@
 import { cn } from '@/utils/cn';
-import { generateArrayItems } from '@/utils/generateArrayItems';
-import { transformKeysToCamelCase } from '@/utils/transformKeys';
+import { generateArrayItems } from '@/utils/generate-array-items';
+import { transformKeysToCamelCase } from '@/utils/transform-keys';
 
 describe('Utils testing', () => {
   it('should generate an array of length 8', () => {
