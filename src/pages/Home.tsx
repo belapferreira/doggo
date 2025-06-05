@@ -48,7 +48,10 @@ export const Home = () => {
 
         <Filter />
 
-        <div className="relative grid min-h-80 w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+        <div
+          data-testid={`doggos-container`}
+          className="relative grid min-h-80 w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-4"
+        >
           {isLoading ? (
             <>
               {items.map((item) => (
