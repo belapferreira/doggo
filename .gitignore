@@ -24,3 +24,7 @@ src/tests/coverage
 *.njsproj
 *.sln
 *.sw?
+
+# Cypress
+cypress/screenshots
+cypress/videos
