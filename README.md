@@ -108,7 +108,7 @@ yarn test
 ```
 
 ```bash
-# running unit tests
+# running e2e tests
 yarn cy:open
 ```
 
