@@ -39,7 +39,7 @@
 
 ### :pushpin: Context
 
-**Doggo* is an application developed by using the [Vite](https://vite.dev/) React framework and the [The Dog API](https://www.thedogapi.com/) and it was created to put in practice what I've studied in the [Testing JavaScript Course](https://github.com/belapferreira/testing-javascript-content) that I took.
+**Doggo** is an application developed by using the [Vite](https://vite.dev/) React framework and the [The Dog API](https://www.thedogapi.com/) and it was created to put in practice what I've studied in the [Testing JavaScript Course](https://github.com/belapferreira/testing-javascript-content) that I took.
 
 **Major assumptions or design choices**
 
@@ -64,6 +64,10 @@
 - [x] Responsive page;
 - [x] Unit tests using Vitest and React Testing Library;
 - [x] E2E tests using Cypress.
+
+<p align="center">
+  <img src="public/coverage.png" style="border-radius:6px" />
+</p>
 
 ### :gear: Settings
 

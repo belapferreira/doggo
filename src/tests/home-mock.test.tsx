@@ -1,31 +1,59 @@
 import { render, screen } from '@testing-library/react';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '@/services/query-client';
-import { useGetImagesQuery } from '@/api/queries';
+import {
+  useGetBreedsQuery,
+  useGetCategoriesQuery,
+  useGetImagesQuery,
+} from '@/api/queries';
 import { Home } from '@/pages/Home';
 import { mockDataWithBreeds } from './mock/dog-card';
 import userEvent from '@testing-library/user-event';
+import { NuqsAdapter } from 'nuqs/adapters/react';
+import { breeds, categories } from './mock/filters';
 
 vi.mock('@/api/queries', () => ({
   useGetImagesQuery: vi.fn(),
+  useGetBreedsQuery: vi.fn(),
+  useGetCategoriesQuery: vi.fn(),
 }));
 
 const HomePage = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Home />
-    </QueryClientProvider>
+    <NuqsAdapter>
+      <QueryClientProvider client={queryClient}>
+        <Home />
+      </QueryClientProvider>
+    </NuqsAdapter>
   );
 };
 
 describe('Home page', () => {
   it('should open modal with doggo data', async () => {
     const mockGetImages = vi.mocked(useGetImagesQuery);
+    const mockGetBreeds = vi.mocked(useGetBreedsQuery);
+    const mockGetCategories = vi.mocked(useGetCategoriesQuery);
 
     // @ts-expect-error mocking TanStack return type
     mockGetImages.mockReturnValueOnce({ data: undefined, isLoading: true });
 
-    render(<HomePage />);
+    // @ts-expect-error mocking TanStack return type
+    mockGetBreeds.mockReturnValue({
+      data: breeds,
+      isLoading: false,
+    });
+
+    // @ts-expect-error mocking TanStack return type
+    mockGetCategories.mockReturnValue({
+      data: categories,
+      isLoading: false,
+    });
+
+    /*     await act(async () => {
+      render(<HomePage />);
+    }); */
+
+    const { rerender } = render(<HomePage />);
 
     const loadingDoggos = screen.getAllByTestId(/doggo-loading-\d+/);
     expect(loadingDoggos).toHaveLength(8);
@@ -40,7 +68,12 @@ describe('Home page', () => {
       isLoading: false,
     });
 
-    render(<HomePage />);
+    /*     await act(async () => {
+      render(<HomePage />);
+    });
+ */
+
+    rerender(<HomePage />);
 
     const doggoName = screen.getByTestId('doggo-breed-name-1');
     expect(doggoName).toBeInTheDocument();
