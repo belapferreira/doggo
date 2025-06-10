@@ -1,8 +1,14 @@
-name: Deploy Doggo application
+name: Deploy Vite App to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build:
