@@ -2,33 +2,36 @@ name: Deploy Vite App to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: ['main']
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
 jobs:
-  build:
-    name: Build Vite Application
+  deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     env:
       VITE_API_URL: ${{ secrets.VITE_API_URL }}
       VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: lts/*
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
@@ -36,14 +39,15 @@ jobs:
       - name: Build the application
         run: npm run build
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-      runs-on: ubuntu-latest
-      needs: build
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
-    steps:
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload dist folder
+          path: './dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
