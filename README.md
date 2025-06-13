@@ -8,8 +8,8 @@
   </strong>
 </p>
 
-<!-- > [!IMPORTANT]
-> 👉🏻 Access: [https://doggo.vercel.app/](https://doggo.vercel.app/) -->
+> [!IMPORTANT]
+> 👉🏻 Access: [https://belapferreira.github.io/doggo/](https://belapferreira.github.io/doggo/)
 
 <p>&nbsp;</p>
 
