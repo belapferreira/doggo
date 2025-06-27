@@ -42,7 +42,7 @@ export const Home = () => {
       <Header />
 
       <main className="mx-auto flex w-full max-w-[1352px] flex-col gap-8 p-6 pb-10">
-        <h1 className="text-2xl font-bold text-neutral-700">
+        <h1 className="text-lg font-bold text-neutral-700 lg:text-2xl">
           Have fun appreciating beautiful doggos
         </h1>
 

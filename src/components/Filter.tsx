@@ -42,7 +42,7 @@ export const Filter = () => {
 
   return (
     <div className="flex w-full flex-wrap justify-end gap-3">
-      <Field label="Type" className="w-32">
+      <Field label="Type" className="w-32 max-[963px]:flex-1">
         <Select
           options={TYPES_OPTIONS}
           defaultValue={TYPES_OPTIONS[0]}
@@ -54,7 +54,7 @@ export const Filter = () => {
         />
       </Field>
 
-      <Field label="Has Breed" className="w-32">
+      <Field label="Has Breed" className="w-32 max-[963px]:flex-1">
         <Select
           options={BOOLEAN_OPTIONS}
           defaultValue={BOOLEAN_OPTIONS[2]}
@@ -66,7 +66,7 @@ export const Filter = () => {
         />
       </Field>
 
-      <Field label="Categories" className="w-60">
+      <Field label="Categories" className="w-60 max-[963px]:w-full">
         <Select
           multiple
           isSearchable
@@ -83,7 +83,7 @@ export const Filter = () => {
         />
       </Field>
 
-      <Field label="Breeds" className="min-w-96">
+      <Field label="Breeds" className="min-w-96 max-[963px]:w-full">
         <Select
           multiple
           isSearchable
