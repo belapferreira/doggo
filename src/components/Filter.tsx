@@ -83,7 +83,7 @@ export const Filter = () => {
         />
       </Field>
 
-      <Field label="Breeds" className="min-w-96 max-[963px]:w-full">
+      <Field label="Breeds" className="max-[963px]:w-full min-[964px]:min-w-96">
         <Select
           multiple
           isSearchable
